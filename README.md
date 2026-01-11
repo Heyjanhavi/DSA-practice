@@ -5,9 +5,7 @@ solved as part of my interview preparation.
 
 ## Topics Covered
 - Arrays
-- Strings
-- Hashing
-- Stack & Queue
+
 
 ## Language
 - Java
