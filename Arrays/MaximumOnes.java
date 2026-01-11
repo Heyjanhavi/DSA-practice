@@ -1,4 +1,4 @@
-/* Problem: Count maximum numbers of 1s in an array
+/* Problem: Count maximum numbers of consecutive 1s in an array
    Time complexity: O(n)
    Space complexity: O(1) */
 
@@ -17,12 +17,15 @@ public class maxones {
         for (int i=0; i<n; i++){
             arr[i] = sc.nextInt();
         }
-        int count = 0;
+        int current_count = 0;
+        int max_count = 0;
         for (int i=0; i<n; i++){
             if (arr[i] == 1){
-                count++;
-            }
+                current_count++;
+                max_count = Math.max(current_count , max_count);
+            }else{
+                current_count = 0;
         }
-        System.out.println("the number of 1s in the array are: " + count);
+        System.out.println("the number of 1s in the array are: " + max_count);
     }
 }
