@@ -3,33 +3,30 @@
   Space complexity:O(n)    */
 
 
+import java.util.Scanner;
+
 public class rmvoutrmstprnthsis {
     public static void main(String[] args) {
-        StringBuilder sb = new StringBuilder(" (hdgrjddhdb)");
-        StringBuilder result = new StringBuilder();
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter the string: ");
+        String s = sc.nextLine();
 
-        int n = sb.length();
         int count = 0;
 
-        for (int i=0; i<n; i++){
-            char c = sb.charAt(i);
-            if ( c == '('){
+        StringBuilder result = new StringBuilder();
+        for (char c: s.toCharArray()){
+            if (c == '('){
+                if (count > 0){
+                    result.append(c);
+                }
                 count++;
-                if (count > 1){
-                    result.append(c);
-                }
-            } else if (c == ')') {
-                count--;
-                if (count>0){
-                    result.append(c);
-                }
-
             }else {
-                result.append(c);
+                count--;
+                if (count > 0){
+                    result.append(c);
+                }
             }
-
         }
-        System.out.println(result);
-
+        System.out.println("Result" + result.toString());
     }
 }
