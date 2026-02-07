@@ -22,11 +22,11 @@ public class rmvoutrmstprnthsis {
 
                 }
                 count++;
-                else {
-                    count--;
-                    if (count > 0){
-                        result.append(c);
-                    }
+
+            }else {
+                count--;
+                if (count > 0){
+                    result.append(c);
                 }
             }
         }
