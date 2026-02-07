@@ -8,25 +8,28 @@ import java.util.Scanner;
 public class rmvoutrmstprnthsis {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        System.out.print("Enter the string: ");
+        System.out.println("Enter the String");
         String s = sc.nextLine();
 
-        int count = 0;
-
         StringBuilder result = new StringBuilder();
+
+        int count =0;
+
         for (char c: s.toCharArray()){
             if (c == '('){
                 if (count > 0){
                     result.append(c);
+
                 }
                 count++;
-            }else {
-                count--;
-                if (count > 0){
-                    result.append(c);
+                else {
+                    count--;
+                    if (count > 0){
+                        result.append(c);
+                    }
                 }
             }
         }
-        System.out.println("Result" + result.toString());
+        System.out.println(result.toString());
     }
 }
