@@ -6,34 +6,43 @@ Time Complexity: O(n)
 Space Complexity: O(1)
 */
 
-import java.util.Arrays;
 import java.util.Scanner;
 
 public class Secndprgrm {
-    public static void main(String[] args) {
+    public static void main(String[] args){
         Scanner sc = new Scanner(System.in);
-        System.out.println("Enter array size");
+        System.out.print("Enter sixe of array: ");
         int n = sc.nextInt();
 
         if (n < 2){
-            System.out.println("Second Largest element does not exist");
+            System.out.println("No Second largest element");
+            return;
         }
+
         int[] numbers = new int[n];
-        System.out.println("Enter the array: ");
+        System.out.print("enter the array: ");
         for (int i=0; i<n; i++){
             numbers[i] = sc.nextInt();
         }
-        int Largest = Integer.MIN_VALUE;
-        int second_largest = Integer.MIN_VALUE;
 
-        for (int i=0; i<n; i++){
-            if (numbers[i] > Largest ){
-                second_largest = Largest;
-                Largest = numbers[i];
-            } else if (numbers[i] > second_largest && numbers[i] != Largest){
+        int largest = numbers[0];
+        int second_largest = Integer.MIN_VALUE;
+        boolean foundSecondLargest = false;
+        
+        for (int i=1; i<n; i++){
+            if (numbers[i] > largest){
+                second_largest = largest;
+                largest = numbers[i];
+                foundSecondLargest = true;
+            }else if (numbers[i] < largest && numbers[i] > second_largest){
                 second_largest = numbers[i];
+                foundSecondLargest = true;
             }
         }
-        System.out.println("The second largest element in the array is " + second_largest);
+        if(!foundSecondLargest){
+            System.out.println("No second largest element present");
+        }else {
+            System.out.println(second_largest);
+        }
     }
 }
